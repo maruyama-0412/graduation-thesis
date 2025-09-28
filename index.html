@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        
+        <p class="lead-form">手話通訳者の派遣申請</p>
+
+        <form>
+        
+            <div class="item">
+                <label class="label">
+                    名前（団体名）
+                    <span class="required-mark">必須</span>
+                </label>
+            <input class="inputs" type="text" required>
+            </div>
+
+            <div class="item">
+                <label class="label">担当者名</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">住所</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">電話番号</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">FAX</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">派遣日時</label>
+                <input class="inputs" type="datetime-local">
+            </div>
+
+            <div class="item">
+                <label class="label">派遣先の住所</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">派遣先の会場名</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">派遣先の電話番号</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">派遣先のFAX</label>
+                <input class="inputs" type="text">
+            </div>
+
+            <div class="item">
+                <label class="label">申請事由</label>
+                <textarea class="inputs"></textarea>
+            </div>
+
+            <div class="btn-area">
+                <button class="button" type="submit" onclick="showCompletionAlert()">送信</button>
+            </div>
+
+        </form>
+
+        <script>
+            function showCompletionAlert() {
+                // フォーム要素全体を取得します
+                // ここでは、送信ボタンの親要素の親要素（<form>）を取得しています
+                const form = document.querySelector('form');
+                
+                // checkValidity()を使って、全てのrequired項目が満たされているかを確認します
+                if (form.checkValidity()) {
+                    // 1. 必須項目が全て入力されていれば、ポップアップを表示
+                    alert('申請を送信しました。'); 
+                    
+                    // 2. 実際にはここでサーバーへの送信処理（fetchやXMLHttpRequest）を実行します。
+                    // ポップアップ表示後、フォームをクリアするかページ遷移させるのが一般的です。
+                    
+                } else {
+                    // 必須項目が未入力の場合
+                    
+                    // 3. フォームにダミーのsubmitイベントを発火させることで、
+                    //    ブラウザ標準のエラーメッセージを表示させます。
+                    form.reportValidity();
+                }
+            }
+        </script>
+    </body>
+</html>
