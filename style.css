@@ -1,54 +1,59 @@
 @charset "utf-8";
 
+/* --- フォームタイトル --- */
 .lead-form {
     /* 1. 位置を中央に */
     text-align: center;
-    
     /* 2. 文字を大きく */
-    font-size: 32px; /* 目立つように大きめに設定 */
-    font-weight: bold; /* さらに強調 */
-    
+    font-size: 32px;
+    font-weight: bold;
     /* 3. 色は黒で */
-    color: #000000; /* 純粋な黒 */
-
-    /* その他の調整（見栄えを良くするため） */
-    margin-top: 50px;    /* 上部の余白 */
-    margin-bottom: 30px; /* 下部の余白 */
+    color: #000000;
+    /* その他の調整 */
+    margin-top: 50px;
+    margin-bottom: 30px;
     padding-bottom: 10px;
+    /* レスポンシブ対応のために幅を設定 */
+    max-width: 600px;
+    width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* --- フォーム全体 --- */
 form {
     max-width: 600px;
+    width: 100%;
     margin: 0px auto 60px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
+/* --- ラベルと必須マーク --- */
 .label {
     font-size: 15px;
+    display: block; 
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-/* ラベル内の必須マークのスタイル */
 .required-mark {
-    /* 色と背景 */
-    background-color: #e83a48; /* 赤色系の背景 */
-    color: white;             /* 白い文字 */
-
-    /* サイズと形状 */
-    font-size: 11px;         /* 文字サイズを小さく */
-    font-weight: normal;     /* ラベルの太字設定の影響を受けないように */
-    padding: 2px 6px;        /* 上下・左右のパディング */
-    border-radius: 4px;      /* 角丸 */
-
-    /* 配置 */
-    margin-left: 8px;        /* ラベルテキストとの間隔 */
-    display: inline-block;   /* 横並びで、paddingが適用されるように */
-    line-height: 1;          /* 行の高さを詰めて、ボックスを小さくする */
-    transform: translateY(-1px); /* わずかに上方向に調整して見た目を揃える */
+    background-color: #e83a48;
+    color: white;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    display: inline-block;
+    line-height: 1;
+    transform: translateY(-1px);
 }
 
+/* --- 入力フィールド --- */
 .inputs {
     width: 100%;
     padding: 10px;
@@ -58,49 +63,79 @@ form {
     box-sizing: border-box;
 }
 
-/* ボタンエリアのコンテナスタイル（中央寄せのため） */
+/* --- ボタンエリア --- */
 .btn-area {
-    margin-top: 5px;
+    margin-top: 30px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 20px; 
+    /* ★ 修正点: ボタンの上の細い線を削除 */
+    border-top: none; 
 }
 
-/* 1. 【送信ボタン】のメインスタイル (.button) */
+/* --- 送信ボタン共通スタイル --- */
 .btn-area .button {
-    /* サイズと形状 */
-    padding: 12px 30px; /* パディングを増やして大きく見せる */
-    min-width: 140px; /* 最小幅を確保 */
-    
-    /* 色と文字 */
-    background-color: #007bff; /* 明るい青 */
-    color: white; /* 白い文字 */
+    padding: 12px 30px;
+    min-width: 140px;
+    background-color: #007bff;
+    color: white;
     font-size: 17px;
     font-weight: bold;
-    
-    /* ボーダーと角丸 */
     border: none;
-    border-radius: 8px; /* 角を丸く */
-    
-    /* 効果とアニメーション */
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影を付けて立体感を出す */
-    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s; /* 滑らかなアニメーション */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+    margin: 0 10px;
 }
 
-/* 2. マウスオーバー（ホバー）時のスタイル */
+/* ホバー/アクティブスタイルは変更なし */
 .btn-area .button:hover {
-    background-color: #0056b3; /* 濃い青に変化 */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 影を強調 */
+    background-color: #0056b3;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* 3. クリック時（アクティブ）のスタイル */
 .btn-area .button:active {
-    background-color: #004085; /* さらに濃い青に */
-    transform: translateY(1px); /* 少し下に押し込まれたように見せる */
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* 影を小さくして「押した」感を出す */
+    background-color: #004085;
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* 補足：複数のボタンがある場合の配置調整 */
-/* .btn-area .button:not(:last-child) {
-    margin-right: 10px;
-} */
+/* --- レスポンシブ対応 (スマートフォン向け) --- */
+@media (max-width: 650px) {
+    
+    /* body: 画面全体の左右の余白を減らす */
+    body {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* タイトル: 文字サイズを縮小し、マージンを調整 */
+    .lead-form {
+        font-size: 24px;
+        margin-top: 30px;
+        width: 100%;
+        padding: 0 5px 10px;
+        box-sizing: border-box;
+    }
+    
+    /* form: パディングを減らし、マージンを調整 */
+    form {
+        padding: 15px;
+        margin: 0 auto 30px;
+    }
+
+    /* ボタンエリア: 上部の余白を調整 */
+    .btn-area {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+    
+    /* ★ 修正点: ボタンの幅を元に戻し、縦積み指定（display: block; width: 100%;）を削除 ★ */
+    /* ボタンは元のサイズ（min-width: 140px）で中央に表示されます。 */
+    .btn-area .button {
+        display: inline-block; /* 横並びのまま維持 */
+        width: auto;           /* 幅の指定を解除 */
+        margin: 0 8px;         /* ボタン間の余白を調整 */
+        min-width: 140px;      /* 最小幅を維持 */
+    }
+}
