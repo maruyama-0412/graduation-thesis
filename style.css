@@ -111,6 +111,16 @@ form {
         padding-left: 5px;
         padding-right: 5px;
     }
+
+    .btn-area .button {
+        /* ★ このブロックに新しい色設定を追加 ★ */
+        background-color: #cc34b0; 
+        
+        /* ホバー時の色もモバイル専用にしたい場合は追記 */
+        /* background-color: #a32a88; */
+        
+        /* ... 他のボタン設定 ... */
+    }
     
     /* タイトル: 文字サイズを縮小し、マージンを調整 */
     .lead-form {
