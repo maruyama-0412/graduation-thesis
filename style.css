@@ -60,7 +60,10 @@ form {
     margin: 5px 0 15px; 
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
+    /* ★ 最重要修正: box-sizingは既に適用済みですが、念のため確認 ★ */
+    box-sizing: border-box; 
+    /* ★ 追加: 内部の要素（カレンダーアイコンなど）が見切れないよう、フォントサイズをモバイルで調整しやすい値に ★ */
+    font-size: 16px; 
 }
 
 /* --- ボタンエリア --- */
@@ -120,8 +123,15 @@ form {
     
     /* form: パディングを減らし、マージンを調整 */
     form {
-        padding: 15px;
+        padding: 10px;
         margin: 0 auto 30px;
+    }
+
+    .inputs {
+        /* スマホでのみフォントサイズをわずかに小さくし、ブラウザの描画領域に余裕を持たせる */
+        font-size: 15px;
+        /* パディングも少し減らすか、そのまま維持 */
+        padding: 8px; 
     }
 
     /* ボタンエリア: 上部の余白を調整 */
