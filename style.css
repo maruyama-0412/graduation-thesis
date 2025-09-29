@@ -108,8 +108,8 @@ form {
     
     /* body: 画面全体の左右の余白を減らす */
     body {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     
     /* タイトル: 文字サイズを縮小し、マージンを調整 */
