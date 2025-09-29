@@ -79,7 +79,7 @@ form {
 .btn-area .button {
     padding: 12px 30px;
     min-width: 140px;
-    background-color: #007bff;
+    background-color: #5c6875;
     color: white;
     font-size: 17px;
     font-weight: bold;
@@ -137,7 +137,7 @@ form {
     /* ボタンエリア: 上部の余白を調整 */
     .btn-area {
         margin-top: 15px;
-        /* padding-top: 15px; */
+        padding-top: 15px;
     }
     
     /* ★ 修正点: ボタンの幅を元に戻し、縦積み指定（display: block; width: 100%;）を削除 ★ */
