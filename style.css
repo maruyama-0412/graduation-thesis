@@ -3,7 +3,7 @@
 /* --- フォームタイトル --- */
 .lead-form {
     /* 1. 位置を中央に */
-    text-align: center;
+    /* text-align: center; */
     /* 2. 文字を大きく */
     font-size: 32px;
     font-weight: bold;
