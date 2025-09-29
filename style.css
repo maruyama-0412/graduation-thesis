@@ -73,12 +73,21 @@ form {
     border-radius: 5px;
     box-sizing: border-box; 
     font-size: 16px; 
+    /* ★ 修正点: 背景色を白と明示的に指定 ★ */
+    background-color: #ffffff;
+    
+    /* ★ 追加: モバイルのデフォルトの影や内側の影をリセット ★ */
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; */
 }
+
 .inputs:focus {
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
+
 textarea.inputs {
     resize: vertical;
     min-height: 100px;
@@ -150,7 +159,7 @@ textarea.inputs {
     /* .inputs: datetime-localの飛び出しと見切れを修正するための重要な調整 */
     .inputs {
         font-size: 14px; /* フォントサイズを小さく */
-        padding: 6px 8px; /* パディングも小さく */
+        padding: 6px; /* パディングも小さく */
         margin: 5px 0 10px; /* 下マージンも削減 */
     }
     
