@@ -54,7 +54,7 @@ form {
 .required-mark {
     background-color: #e83a48; /* 赤色 */
     color: white;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: normal;
     padding: 2px 6px;
     border-radius: 4px;
@@ -165,8 +165,9 @@ textarea.inputs {
     
     /* ボタンエリア: 上部の余白を調整 */
     .btn-area {
-        margin-top: 15px;
-        padding-top: 15px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding-top: 10px;
     }
     
     /* ボタン: モバイルでも元のサイズで中央表示を維持 */
