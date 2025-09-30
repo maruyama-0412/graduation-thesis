@@ -151,7 +151,7 @@ textarea.inputs {
     
     /* form: パディングをさらに減らし、入力フィールドの描画領域を最大化 */
     form {
-        padding: 10px; /* フォームの内側のパディングを最小限に */
+        padding: 10px 5px; /* フォームの内側のパディングを最小限に */
         margin: 0 auto 30px;
         max-width: 100%;
     }
@@ -159,7 +159,7 @@ textarea.inputs {
     /* .inputs: datetime-localの飛び出しと見切れを修正するための重要な調整 */
     .inputs {
         font-size: 14px; /* フォントサイズを小さく */
-        padding: 6px; /* パディングも小さく */
+        padding: 6px 4px; /* パディングも小さく */
         margin: 5px 0 10px; /* 下マージンも削減 */
     }
     
