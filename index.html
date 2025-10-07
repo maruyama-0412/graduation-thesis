@@ -107,6 +107,16 @@
                 if (form.checkValidity()) {
                     // 1. 必須項目が全て入力されていれば、ポップアップを表示
                     alert('申請を送信しました。'); 
+
+                    fetch("http://192.168.0.125:8080", {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        /* body: JSON.stringify({ status: "フォームが送信されました" } )*/
+                    })
+                    .then(response => console.log("LINE通知送信成功"))
+                    .catch(error => console.error("LINE通知送信失敗:", error));
                     
                     // 2. 実際にはここでサーバーへの送信処理（fetchやXMLHttpRequest）を実行します。
                     // ポップアップ表示後、フォームをクリアするかページ遷移させるのが一般的です。
