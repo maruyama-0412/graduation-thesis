@@ -118,6 +118,8 @@
                     .then(response => console.log("LINE通知送信成功"))
                     .catch(error => console.error("LINE通知送信失敗:", error));
                     
+
+                    alert(response.body);
                     // 2. 実際にはここでサーバーへの送信処理（fetchやXMLHttpRequest）を実行します。
                     // ポップアップ表示後、フォームをクリアするかページ遷移させるのが一般的です。
                     
