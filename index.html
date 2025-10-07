@@ -3,34 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>手話通訳者の派遣申請</title>
+        <title>Document</title>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         
         <p class="lead-form">手話通訳者の派遣申請</p>
 
-        <form id="sign-interpreter-form">
-        
-            <div class="item">
-                <label class="label">
-                    名前（団体名）
-                    <span class="required-mark">必須</span>
-                </label>
-                <input class="inputs" type="text" name="name" required>
-            </div>
-
-            <div class="item">
-                <label class="label">担当者名</label>
-                <input class="inputs" type="text" name="contact_person">
-            </div>
+        <form>
 
             <div class="item">
                 <label class="label">
                     住所
                     <span class="required-mark">必須</span>
                 </label>
-                <input class="inputs" type="text" name="address" required>
+            <input class="inputs" type="text" required>
+            </div>
+        
+            <div class="item">
+                <label class="label">
+                    名前（団体名）
+                    <span class="required-mark">必須</span>
+                </label>
+            <input class="inputs" type="text" required>
+            </div>
+
+            <div class="item">
+                <label class="label">担当者名</label>
+                <input class="inputs" type="text">
             </div>
 
             <div class="item">
@@ -38,12 +38,12 @@
                     電話番号
                     <span class="required-mark">必須</span>
                 </label>
-                <input class="inputs" type="text" name="phone" required>
+            <input class="inputs" type="text" required>
             </div>
 
             <div class="item">
                 <label class="label">FAX</label>
-                <input class="inputs" type="text" name="fax">
+                <input class="inputs" type="text">
             </div>
 
             <div class="item">
@@ -51,7 +51,7 @@
                     派遣日時
                     <span class="required-mark">必須</span>
                 </label>
-                <input class="inputs" type="datetime-local" name="dispatch_time" required>
+                <input class="inputs" type="datetime-local" name="dispatch-time">
             </div>
 
             <div class="item">
@@ -59,7 +59,7 @@
                     派遣先の住所
                     <span class="required-mark">必須</span>
                 </label>
-                <input class="inputs" type="text" name="dispatch_address" required>
+            <input class="inputs" type="text" required>
             </div>
 
             <div class="item">
@@ -67,7 +67,7 @@
                     派遣先の会場名
                     <span class="required-mark">必須</span>
                 </label>
-                <input class="inputs" type="text" name="dispatch_venue" required>
+            <input class="inputs" type="text" required>
             </div>
 
             <div class="item">
@@ -75,12 +75,12 @@
                     派遣先の電話番号
                     <span class="required-mark">必須</span>
                 </label>
-                <input class="inputs" type="text" name="dispatch_phone" required>
+            <input class="inputs" type="text" required>
             </div>
 
             <div class="item">
                 <label class="label">派遣先のFAX</label>
-                <input class="inputs" type="text" name="dispatch_fax">
+                <input class="inputs" type="text">
             </div>
 
             <div class="item">
@@ -88,64 +88,36 @@
                     申請事由
                     <span class="required-mark">必須</span>
                 </label>
-                <textarea class="inputs" name="reason" required></textarea>
+            <textarea class="inputs" required></textarea>
             </div>
 
             <div class="btn-area">
-                <button class="button" type="button" onclick="showCompletionAlert()">送信</button>
+                <button class="button" type="submit" onclick="showCompletionAlert()">送信</button>
             </div>
 
         </form>
 
         <script>
             function showCompletionAlert() {
-                const form = document.getElementById('sign-interpreter-form');
+                // フォーム要素全体を取得します
+                // ここでは、送信ボタンの親要素の親要素（<form>）を取得しています
+                const form = document.querySelector('form');
                 
-                // ブラウザ標準のバリデーションチェックを実行
-                if (!form.checkValidity()) {
+                // checkValidity()を使って、全てのrequired項目が満たされているかを確認します
+                if (form.checkValidity()) {
+                    // 1. 必須項目が全て入力されていれば、ポップアップを表示
+                    alert('申請を送信しました。'); 
+                    
+                    // 2. 実際にはここでサーバーへの送信処理（fetchやXMLHttpRequest）を実行します。
+                    // ポップアップ表示後、フォームをクリアするかページ遷移させるのが一般的です。
+                    
+                } else {
+                    // 必須項目が未入力の場合
+                    
+                    // 3. フォームにダミーのsubmitイベントを発火させることで、
+                    //    ブラウザ標準のエラーメッセージを表示させます。
                     form.reportValidity();
-                    return; // 必須項目が未入力の場合は中断
                 }
-                
-                // 1. フォームデータをFormDataオブジェクトで収集
-                const formData = new FormData(form);
-                const data = {};
-                
-                // 2. FormDataをシンプルなJavaScriptオブジェクトに変換
-                formData.forEach((value, key) => {
-                    data[key] = value;
-                });
-
-                // ★ 新しい項目 'new_field' の初期値を設定（Excelへの書き込みに合わせる）
-                data['new_field'] = '処理中'; 
-
-                console.log('送信データ:', data);
-                
-                // 3. fetch APIでデータをサーバーに非同期送信 (POST)
-                fetch('http://192.168.0.125:8080/test-write-excel', { 
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json' // JSON形式で送信
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => {
-                    // HTTPステータスコードを確認
-                    if (!response.ok) {
-                        throw new Error(`送信失敗: HTTP status ${response.status}`);
-                    }
-                    return response.json(); // サーバーからのJSON応答を解析
-                })
-                .then(responseData => {
-                    // 成功時の処理
-                    alert(`申請を送信しました。✅\nサーバー応答: ${responseData.message}`); 
-                    form.reset(); // フォームをクリア
-                })
-                .catch(error => {
-                    // エラー発生時の処理
-                    console.error('送信エラー:', error);
-                    alert('申請の送信中にエラーが発生しました。サーバーを確認してください。');
-                });
             }
         </script>
     </body>
