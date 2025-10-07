@@ -122,7 +122,7 @@
                 console.log('送信データ:', data);
                 
                 // 3. fetch APIでデータをサーバーに非同期送信 (POST)
-                fetch('http://127.0.0.1:5000/test-write-excel', { 
+                fetch('http://192.168.0.125:8080/test-write-excel', { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json' // JSON形式で送信
