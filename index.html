@@ -106,7 +106,7 @@
                 // checkValidity()を使って、全てのrequired項目が満たされているかを確認します
                 if (form.checkValidity()) {
                     // 1. 必須項目が全て入力されていれば、ポップアップを表示
-                    alert('申請を送信しました。'); 
+                    
 
                     fetch("http://192.168.0.125:8080", {
                         method: "GET",
@@ -119,7 +119,7 @@
                     .catch(error => console.error("LINE通知送信失敗:", error));
                     
 
-                    alert(response.body);
+                    alert(response.status);
                     // 2. 実際にはここでサーバーへの送信処理（fetchやXMLHttpRequest）を実行します。
                     // ポップアップ表示後、フォームをクリアするかページ遷移させるのが一般的です。
                     
